@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Modal,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
   Image,
 } from "react-native";
+
+import {
+  styles
+} from '../styles'
 
 export default (props) => {
   return (
@@ -28,7 +31,7 @@ export default (props) => {
               </TouchableOpacity>
             </View>
             <View style={styles.viewImage}>
-              <Image style={styles.image} resizeMode="center" source={{ uri: props.image }} />
+              <Image style={styles.images} resizeMode="center" source={{ uri: props.image }} />
             </View>
             <View style={{...styles.flexs, marginBottom: 10}}>
               <Text>Nome: </Text>
@@ -54,58 +57,14 @@ export default (props) => {
               <Text>Data de criação: </Text>
               <Text>{props.data}</Text>
             </View>
+            <View>
+              <TouchableOpacity onPress={props.onShare} style={styles.shares}>
+                <Text style={styles.primaryColor}>Compartilhe</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: 'black',
-    opacity: 0.86
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 18,
-    width: '65%',
-    alignItems: "center",
-  },
-  openButton: {
-    backgroundColor: 'transparent',
-    borderRadius: 20,
-    width: '10%',
-  },
-  textStyle: {
-    color: "black",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 25,
-    textAlign: "center",
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: -5,
-    width: '90%',
-  },
-  flexs: {
-    display: 'flex',
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  image: {
-    height: 70,
-    width: 200,
-  },
-  viewImage: {
-    marginBottom: 20,
-  }
-});

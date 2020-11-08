@@ -4,11 +4,14 @@ import {
   Linking,
 } from 'react-native'
 
+
 import {
   Container
 } from './styles'
 
 import { URL_SD } from '../../config/api'
+
+import { onShares } from '../../config/constants'
 
 import {
   Header,
@@ -78,6 +81,7 @@ export default () => {
               closeModal={() => {
                 setModalVisible(!modalVisible);
               }}
+              onShare={() => {onShares(element.name, element.email, element.phone)}}
             />
           ) : null}
         </Container>

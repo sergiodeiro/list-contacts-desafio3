@@ -3,7 +3,8 @@ const theme = {
     secondColor: '#FFFFFF',
     threeColor: '#000000',
     fourtColor: '#121242',
-    fiveColor: '#83c9f4'
+    fiveColor: '#83c9f4',
+    sixColor: 'transparent',
   };
   
   export default theme;

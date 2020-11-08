@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
   ScrollView,
   Linking,
-  Text,
 } from 'react-native'
 
 import {
@@ -40,31 +39,30 @@ export default () => {
         <Container>
           {data && data.map((item, key) => {
             return (
-              <>
-                <Card
-                  title={item.name}
-                  text={item.phone}
-                  image={item.urlBase + item.image}
-                  setor={item.setor}
-                  titleButton={" Ligar"}
-                  titleButtonSms={" Mensagem"}
-                  titleModal={'Detalhes'}
-                  onPress={() => {
-                    Linking.openURL(`tel: ${item.phone}`).catch((err) =>
-                      console.error("Couldn't load page", err),
-                    )
-                  }}
-                  onPressSms={() => {
-                    Linking.openURL(`sms: ${item.phone}`).catch((err) =>
-                      console.error("Couldn't load page", err),
-                    )
-                  }}
-                  onModal={() => {
-                    setElement(item);
-                    setModalVisible(true);
-                  }}
-                />
-              </>
+              <Card
+                key={key}
+                title={item.name}
+                text={item.phone}
+                image={item.urlBase + item.image}
+                setor={item.setor}
+                titleButton={" Ligar"}
+                titleButtonSms={" Mensagem"}
+                titleModal={'Detalhes'}
+                onPress={() => {
+                  Linking.openURL(`tel: ${item.phone}`).catch((err) =>
+                    console.error("Couldn't load page", err),
+                  )
+                }}
+                onPressSms={() => {
+                  Linking.openURL(`sms: ${item.phone}`).catch((err) =>
+                    console.error("Couldn't load page", err),
+                  )
+                }}
+                onModal={() => {
+                  setElement(item);
+                  setModalVisible(true);
+                }}
+              />
             )
           })}
           {element ? (
@@ -73,7 +71,7 @@ export default () => {
               name={element.name}
               phone={element.phone}
               setor={element.setor}
-              image={element.urlBase+element.image}
+              image={element.urlBase + element.image}
               idade={element.idade}
               email={element.email}
               data={element.dataCreate}

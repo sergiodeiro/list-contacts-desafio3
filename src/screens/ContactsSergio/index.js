@@ -74,6 +74,9 @@ export default () => {
               phone={element.phone}
               setor={element.setor}
               image={element.urlBase+element.image}
+              idade={element.idade}
+              email={element.email}
+              data={element.dataCreate}
               closeModal={() => {
                 setModalVisible(!modalVisible);
               }}

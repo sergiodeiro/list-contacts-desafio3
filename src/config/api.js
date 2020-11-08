@@ -1,1 +1,1 @@
-export const URL_SD = 'https://run.mocky.io/v3/619390de-ac48-46d4-8d86-0e2b4dae0c7c'
+export const URL_SD = 'https://run.mocky.io/v3/12c3c672-78ff-48b4-8b80-73f5f188370b'

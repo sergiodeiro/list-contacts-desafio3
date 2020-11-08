@@ -39,12 +39,20 @@ export default (props) => {
               <Text>{props.phone}</Text>
             </View>
             <View style={{...styles.flexs, marginBottom: 10}}>
+              <Text>Email: </Text>
+              <Text>{props.email}</Text>
+            </View>
+            <View style={{...styles.flexs, marginBottom: 10}}>
               <Text>Setor: </Text>
               <Text>{props.setor}</Text>
             </View>
             <View style={{...styles.flexs, marginBottom: 10}}>
               <Text>Idade: </Text>
-              <Text>{props.phone}</Text>
+              <Text>{props.idade}</Text>
+            </View>
+            <View style={{...styles.flexs, marginBottom: 10}}>
+              <Text>Data de criação: </Text>
+              <Text>{props.data}</Text>
             </View>
           </View>
         </View>
@@ -65,7 +73,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 20,
+    padding: 18,
     width: '65%',
     alignItems: "center",
   },

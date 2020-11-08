@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   ScrollView,
   Linking,
+  Text,
 } from 'react-native'
 
 import {
@@ -10,15 +11,18 @@ import {
 
 import { URL_SD } from '../../config/api'
 
-import { 
-  Header, 
-  Card, 
-  Loading, 
+import {
+  Header,
+  Card,
+  Loading,
+  Modal,
 } from '../../components'
 
 export default () => {
 
   const [isLoading, setLoading] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [element, setElement] = useState();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -42,24 +46,39 @@ export default () => {
                   text={item.phone}
                   image={item.urlBase + item.image}
                   setor={item.setor}
+                  titleButton={" Ligar"}
+                  titleButtonSms={" Mensagem"}
+                  titleModal={'Detalhes'}
                   onPress={() => {
                     Linking.openURL(`tel: ${item.phone}`).catch((err) =>
                       console.error("Couldn't load page", err),
                     )
-                  }
-                  }
-                  titleButton={" Ligar"}
-                  titleButtonSms={" Mensagem"}
+                  }}
                   onPressSms={() => {
                     Linking.openURL(`sms: ${item.phone}`).catch((err) =>
                       console.error("Couldn't load page", err),
                     )
-                  }
-                  }
+                  }}
+                  onModal={() => {
+                    setElement(item);
+                    setModalVisible(true);
+                  }}
                 />
               </>
             )
           })}
+          {element ? (
+            <Modal
+              visible={modalVisible}
+              name={element.name}
+              phone={element.phone}
+              setor={element.setor}
+              image={element.urlBase+element.image}
+              closeModal={() => {
+                setModalVisible(!modalVisible);
+              }}
+            />
+          ) : null}
         </Container>
       )}
     </ScrollView>

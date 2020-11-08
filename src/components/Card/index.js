@@ -43,10 +43,15 @@ export default (props) => {
             onPress={props.onPress}
           />
           <Button
-            buttonStyle={{ borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0, paddingHorizontal: 15, backgroundColor: props.buttonBackgroundSms || themes.fourtColor }}
+            buttonStyle={{ borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 10, paddingHorizontal: 15, backgroundColor: props.buttonBackgroundSms || themes.fourtColor }}
             title={props.titleButtonSms}
             icon={<Icon name={'chatbubble-outline'} size={15} color={themes.secondColor} />}
             onPress={props.onPressSms}
+          />
+          <Button
+            buttonStyle={{ borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0, paddingHorizontal: 15, backgroundColor: props.buttonBackgroundModal || themes.fiveColor }}
+            title={props.titleModal}
+            onPress={props.onModal}
           />
         </View>
       </Card>

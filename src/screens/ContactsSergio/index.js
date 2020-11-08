@@ -1,8 +1,7 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ScrollView,
   Linking,
-  View
 } from 'react-native'
 
 import {
@@ -11,41 +10,31 @@ import {
 
 import { URL_SD } from '../../config/api'
 
-import { Header, Card } from '../../components'
+import { 
+  Header, 
+  Card, 
+  Loading, 
+} from '../../components'
 
-export default class ContactsSergio extends React.Component {
+export default () => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: [],
-    }
-  }
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  urlBase = async () => {
-    fetch(URL_SD).then(
-      res => res.json()
-    ).then(res => {
-      console.log(res)
-      this.setState({
-        data: res || []
-      })
-    })
-  }
+  useEffect(() => {
+    fetch(URL_SD)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
 
-  componentDidMount() {
-    this.urlBase();
-  }
-
-  render() {
-
-    const { data } = this.state
-
-    return (
-      <ScrollView>
-        <Header title="Contatos - Sérgio" />
+  return (
+    <ScrollView>
+      <Header title="Contatos - Sérgio" />
+      {isLoading ? <Loading /> : (
         <Container>
-          {data && data.map((item) => {
+          {data && data.map((item, key) => {
             return (
               <>
                 <Card
@@ -61,7 +50,7 @@ export default class ContactsSergio extends React.Component {
                   }
                   titleButton=" Ligar"
                   titleButtonSms=" Mensagem"
-                  onPress={() => {
+                  onPressSms={() => {
                     Linking.openURL(`sms: ${item.phone}`).catch((err) =>
                       console.error("Couldn't load page", err),
                     )
@@ -72,7 +61,7 @@ export default class ContactsSergio extends React.Component {
             )
           })}
         </Container>
-      </ScrollView>
-    )
-  }
+      )}
+    </ScrollView>
+  )
 }

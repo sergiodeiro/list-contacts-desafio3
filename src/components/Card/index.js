@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-import styled from 'styled-components/native'
-
 import { View, Text } from 'react-native'
 
 import themes from '../../resources/theme'
@@ -11,30 +8,31 @@ import {
   Button,
 } from 'react-native-elements'
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
-
-// styled Componentes
-const Icon = styled(Ionicons)``
+import {
+  Icon,
+  Diviser,
+  Wrapper,
+  styles,
+} from '../styles'
 
 export default (props) => {
 
   return (
-    <View style={{ width: '50%' }}>
+    <Wrapper>
       <Card>
-        <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10, textAlign: 'center' }}>
+        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.title}>
           {props.title}
         </Text>
-        <Card.Divider />
+        <Diviser />
         {props.image ? (
-          <Card.Image style={{ height: 100 }} resizeMode="center" source={{ uri: props.image }} />
+          <Card.Image style={styles.image} resizeMode="center" source={{ uri: props.image }} />
         ) : (
-            <Card.Image style={{ height: 100 }} source={'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'} />
+            <Card.Image style={styles.image} source={'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'} />
           )}
-        <Text style={{ marginBottom: 5, marginTop: 10, textAlign: 'center' }}>
+        <Text style={styles.texts}>
           <Icon name={'call-outline'} size={15} />  {props.text}
         </Text>
-        <Text style={{ marginBottom: 10, textAlign: 'center' }}>
+        <Text style={styles.setor}>
           <Icon name={'briefcase-outline'} size={15} /> {props.setor}
         </Text>
         <View>
@@ -45,13 +43,13 @@ export default (props) => {
             onPress={props.onPress}
           />
           <Button
-            buttonStyle={{ borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0, paddingHorizontal: 15, backgroundColor: props.buttonBackground || themes.fourtColor }}
+            buttonStyle={{ borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0, paddingHorizontal: 15, backgroundColor: props.buttonBackgroundSms || themes.fourtColor }}
             title={props.titleButtonSms}
             icon={<Icon name={'chatbubble-outline'}  size={15} color='#ffffff' />}
             onPress={props.onPressSms}
           />
         </View>
       </Card>
-    </View>
+    </Wrapper>
   )
 }

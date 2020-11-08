@@ -36,7 +36,7 @@ function App(props) {
         }}
       >
         <Tab.Screen name="Contatos - Sérgio" component={ContactsSergio} />
-        <Tab.Screen name="ContactsMauricio" component={ContactsMauricio} />
+        <Tab.Screen name="Contatos - Maurício" component={ContactsMauricio} />
       </Tab.Navigator>
     </NavigationContainer>
   );

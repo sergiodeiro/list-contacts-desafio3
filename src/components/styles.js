@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import themes from '../resources/theme'
 import theme from '../resources/theme';
 
 
 // styled Componentes
-export const Icon = styled(Ionicons)``
+export const Icon = styled(Ionicons)`
+${({colors}) => colors ? `color: `+theme.primaryColor : null}
+`
 
 export const Wrapper = styled.View`
   width: 50%;
@@ -86,10 +87,13 @@ export const styles = StyleSheet.create({
   shares: {
     borderColor: theme.primaryColor, 
     borderWidth: 1, 
-    padding: 8, 
+    padding: 12, 
     borderRadius: 10
   },
   primaryColor: {
     color: theme.primaryColor
+  },
+  mt: {
+    marginTop: 10,
   }
 })

@@ -8,7 +8,8 @@ import {
 } from "react-native";
 
 import {
-  styles
+  styles,
+  Icon
 } from '../styles'
 
 export default (props) => {
@@ -57,9 +58,9 @@ export default (props) => {
               <Text>Data de criação: </Text>
               <Text>{props.data}</Text>
             </View>
-            <View>
+            <View style={styles.mt}>
               <TouchableOpacity onPress={props.onShare} style={styles.shares}>
-                <Text style={styles.primaryColor}>Compartilhe</Text>
+                <Text style={styles.primaryColor}>Compartilhe <Icon name="share-social-outline" size={15} colors /></Text>
               </TouchableOpacity>
             </View>
           </View>

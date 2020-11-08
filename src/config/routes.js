@@ -7,6 +7,8 @@ import {
   ContactsSergio,
 } from '../screens';
 
+import theme from '../resources/theme'
+
 const Tab = createBottomTabNavigator();
 
 function App(props) {
@@ -31,8 +33,11 @@ function App(props) {
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
+          activeTintColor: theme.secondColor,
+          inactiveTintColor: theme.sevenColor,
+          style: {
+            backgroundColor: theme.primaryColor,
+          }
         }}
       >
         <Tab.Screen name="Contatos - Sérgio" component={ContactsSergio} />

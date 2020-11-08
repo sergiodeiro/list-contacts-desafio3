@@ -5,6 +5,7 @@ const theme = {
     fourtColor: '#121242',
     fiveColor: '#83c9f4',
     sixColor: 'transparent',
+    sevenColor: 'gray',
   };
   
   export default theme;

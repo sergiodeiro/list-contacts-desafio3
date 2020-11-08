@@ -48,8 +48,8 @@ export default () => {
                     )
                   }
                   }
-                  titleButton=" Ligar"
-                  titleButtonSms=" Mensagem"
+                  titleButton={" Ligar"}
+                  titleButtonSms={" Mensagem"}
                   onPressSms={() => {
                     Linking.openURL(`sms: ${item.phone}`).catch((err) =>
                       console.error("Couldn't load page", err),

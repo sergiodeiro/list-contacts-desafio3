@@ -20,4 +20,8 @@
 - Modules (screens of app and routes)
 - Services (alot of functions separated by your use, example -> database)
 - Styles (static styles props(example -> colors))
-- Constants (constants of app separated by entity or screen)
+- Config (constants of app separated by entity or screen)
+
+## Equipe
+Aluno: Sérgio Deiró de Souza Silva - 205182052
+Aluno: Maurício Lanner

@@ -37,7 +37,7 @@ export default () => {
 
   return (
     <ScrollView>
-      <Header title="Social Contatct" />
+      <Header title="Social Contact" />
       {isLoading ? <Loading /> : (
         <Container>
           {data && data.map((item, key) => {

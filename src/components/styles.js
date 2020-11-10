@@ -13,6 +13,10 @@ export const Wrapper = styled.View`
   width: 50%;
 `
 
+export const WrapperLann = styled.View`
+  width: 100%;
+`
+
 export const Diviser = styled.View`
   border-bottom-width: 0.8px;
   margin-bottom: 20px;
@@ -28,6 +32,11 @@ export const styles = StyleSheet.create({
   },
   image: {
     height: 100,
+  },
+  avatar: {
+    width: "100%",
+    height: 120,
+    borderRadius: 100,
   },
   texts: {
     marginBottom: 5,
@@ -45,12 +54,27 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.threeColor,
     opacity: 0.86
   },
+  centeredViewSocial: {
+    flex: 1,
+    width: '100%',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    opacity: 0.86
+  },
   modalView: {
     margin: 20,
     backgroundColor: theme.secondColor,
     borderRadius: 20,
     padding: 18,
     width: '65%',
+    alignItems: "center",
+  },
+  modalViewSocial: {
+    backgroundColor: "#fff",
+    padding: 18,
+    width: '100%',
+    height: '100%',
     alignItems: "center",
   },
   openButton: {
@@ -77,9 +101,21 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  flexsModal: {
+    display: 'flex',
+    flex: 1,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   images: {
     height: 70,
     width: 200,
+  },
+  avatarDetails: {
+    height: 200,
+    width: 200,
+    borderRadius: 200,
   },
   viewImage: {
     marginBottom: 20,
@@ -95,5 +131,11 @@ export const styles = StyleSheet.create({
   },
   mt: {
     marginTop: 10,
+  },
+  fundo:{
+    backgroundColor: '#8B008B',
+  },
+  titleModal:{
+    fontSize: 20,
   }
 })
